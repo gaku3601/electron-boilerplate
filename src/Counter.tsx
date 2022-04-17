@@ -1,13 +1,15 @@
-import React from "react";
-import {useCounter} from "@/useCounter";
+import React from 'react'
+import useCounter from '@/useCounter'
 
-export default () => {
-  const { count, decrement, increment } = useCounter();
+function Counter() {
+  const { count, decrement, increment } = useCounter()
   return (
-      <div>
-        <button onClick={decrement}>-</button>
-        <span>{count}</span>
-        <button onClick={increment}>+</button>
-      </div>
-  );
+    <div>
+      <button type="button" onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button type="button" onClick={increment}>+</button>
+    </div>
+  )
 }
+
+export default Counter
