@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'src/index.tsx'),
   devServer: {
-    open: true, // 自動でブラウザで開く
+    // open: true, // 自動でブラウザで開く
     static: {
       directory: path.join(__dirname, 'public'),
     },
