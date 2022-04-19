@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'src/index.tsx'),
+  devtool: 'eval-source-map',
   devServer: {
     // open: true, // 自動でブラウザで開く
     static: {
