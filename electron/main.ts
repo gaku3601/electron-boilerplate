@@ -1,6 +1,5 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
-import * as url from 'url'
 
 let win: BrowserWindow
 const createWindow = () => {
@@ -13,11 +12,7 @@ const createWindow = () => {
   })
 
   const appURL = app.isPackaged
-    ? url.format({
-      pathname: path.join(__dirname, '../index.html'),
-      protocol: 'file:',
-      slashes: true,
-    })
+    ? `file://${__dirname}/../index.html`
     : 'http://localhost:3000'
   win.loadURL(appURL)
 
@@ -25,6 +20,18 @@ const createWindow = () => {
     win.webContents.openDevTools()
   }
 }
+
+ipcMain.on('window-open', () => {
+  const child = new BrowserWindow({
+    parent: win,
+    width: 800,
+    height: 600,
+  })
+  const appURL = app.isPackaged
+    ? `file://${__dirname}/../index.html#/hello`
+    : 'http://localhost:3000#/hello'
+  child.loadURL(appURL)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()

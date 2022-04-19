@@ -33,6 +33,8 @@ module.exports = {
       },
     ],
     semi: ['error', 'never', { beforeStatementContinuationChars: 'never' }],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
   settings: {
     'import/resolver': 'webpack',
