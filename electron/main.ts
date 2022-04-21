@@ -12,7 +12,7 @@ const createWindow = () => {
   })
 
   const appURL = app.isPackaged
-    ? `file://${__dirname}/../index.html`
+    ? `file://${__dirname}/index.html`
     : 'http://localhost:3000'
   win.loadURL(appURL)
 
@@ -28,7 +28,7 @@ ipcMain.on('window-open', () => {
     height: 600,
   })
   const appURL = app.isPackaged
-    ? `file://${__dirname}/../index.html#/hello`
+    ? `file://${__dirname}/index.html#/hello`
     : 'http://localhost:3000#/hello'
   child.loadURL(appURL)
 })
