@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack-dev-server\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
     "start:browser": "webpack-dev-server",
-    "build": "webpack && tsc -p electron --outDir ./build && electron-builder --mac --x64 --dir",
+    "build": "webpack && tsc -p electron && electron-builder --mac --x64 --dir",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
